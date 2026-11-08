@@ -1,0 +1,746 @@
+/* Resetea los márgenes y aplica box-sizing para que padding y border no alteren el ancho */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Hace que el desplazamiento al hacer clic en los enlaces internos sea fluido */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fondo y color de texto global para la web */
+.CloudBody {
+    background-color: #191e33;
+    color: #ffffff;
+}
+
+/* Resalta los elementos al navegar usando el teclado (accesibilidad) */
+:focus-visible {
+    outline: 3px solid #00bfff;
+    outline-offset: 3px;
+}
+
+/* Enlace oculto que aparece arriba al presionar Tab para lectores de pantalla */
+.SaltarContenido {
+    position: absolute;
+    left: 16px;
+    top: -60px;
+    z-index: 2000;
+    background: #00bfff;
+    color: #131728;
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.SaltarContenido:focus {
+    top: 12px;
+}
+
+/* Barra de navegación fija en la parte superior */
+.CloudNavbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    width: 100%;
+    min-height: 80px;
+    background-color: #1a1c29;
+    align-items: center;
+    gap: 15px;
+    padding: 0 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.MarcaNavbar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.CloudPicture {
+    display: flex;
+    align-items: center;
+}
+
+#CloudLogo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.H2Cloud {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    margin: 0;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* Clase de utilidad para teñir texto en azul celeste */
+.texto-celeste {
+    color: #00bfff;
+}
+
+.BarraNavegacion {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilos de cada enlace/botón en la barra de navegación */
+.NavH3 {
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1.5px solid #f1f4f5;
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.NavH3:hover,
+.NavH3.Activo {
+    background-color: #00bfff;
+    color: #1a1c29;
+    border-color: #00bfff;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+/* Botón de menú hamburguesa para móviles */
+.BotonMenu {
+    display: none;
+    margin-left: auto;
+    width: 46px;
+    height: 46px;
+    background: transparent;
+    border: 1.5px solid #f1f4f5;
+    border-radius: 8px;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0;
+}
+
+.BotonMenu span {
+    display: block;
+    width: 22px;
+    height: 2.5px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Transforma las líneas del menú hamburguesa en una "X" cuando está abierto */
+.BotonMenu[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+}
+
+.BotonMenu[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.BotonMenu[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+}
+
+.CloudContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px 70px 20px;
+    scroll-margin-top: 90px;
+}
+
+/* Título principal con tamaño adaptativo mediante clamp */
+.H1CloudComputing {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(34px, 7vw, 80px);
+    line-height: 1.1;
+    font-weight: bold;
+    color: #f0f0f3;
+    margin: 0 0 20px 0;
+}
+
+/* Aplica un gradiente multicolor directamente sobre el texto */
+.texto-multicolor {
+    background: linear-gradient(135deg, #00bfff, #9333ea, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    padding-bottom: 6px;
+}
+
+.Parrafo_Inicio {
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: #d1d5db;
+    margin: 4px 0 30px 0;
+    max-width: 850px;
+    line-height: 1.6;
+}
+
+.ImagenHero {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 191, 255, 0.15);
+    animation: flotar 6s ease-in-out infinite;
+}
+
+/* Animación sutil de levitación para la imagen principal */
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.BotonHero {
+    margin-top: 35px;
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    background: linear-gradient(135deg, #2563eb, #9333ea);
+    padding: 14px 28px;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.BotonHero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgba(59, 130, 246, 0.5);
+}
+
+.SeccionContenedor {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    scroll-margin-top: 90px;
+}
+
+.SeccionOscura {
+    background-color: #131728;
+    border-radius: 16px;
+}
+
+.TituloSeccion {
+    font-size: clamp(26px, 4vw, 36px);
+    text-align: center;
+    margin: 0 0 15px 0;
+    color: #ffffff;
+}
+
+.TituloSub {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.DescripcionSeccion {
+    font-size: 18px;
+    text-align: center;
+    color: #b6bdc9;
+    max-width: 750px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.Figura {
+    margin: 10px auto 45px auto;
+    max-width: 580px;
+    text-align: center;
+}
+
+.FiguraChica {
+    max-width: 300px;
+}
+
+.Figura img {
+    display: block;
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid #2d3558;
+}
+
+.Figura figcaption {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* Cuadrícula flexible automática para las tarjetas */
+.GridTarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.Tarjeta {
+    background-color: #212740;
+    padding: 30px 20px;
+    border-radius: 12px;
+    border: 1px solid #2d3558;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Línea indicadora decorativa superior en las tarjetas */
+.IndicadorTarjeta {
+    width: 35px;
+    height: 4px;
+    background-color: #00bfff;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+.Tarjeta h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.Tarjeta p {
+    font-size: 14px;
+    color: #b0b8c6;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.GridServicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.TarjetaServicio {
+    background-color: #1a1c29;
+    border: 1px solid #2d3558;
+    border-radius: 14px;
+    padding: 35px 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.TarjetaServicio.Destacada {
+    border-color: #9333ea;
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.2);
+}
+
+/* Insignia flotante en las tarjetas de servicios */
+.Badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background-color: #3b82f6;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.TarjetaServicio.Destacada .Badge {
+    background-color: #9333ea;
+}
+
+.TarjetaServicio h3 {
+    font-size: 32px;
+    margin: 0;
+    color: #00bfff;
+}
+
+.TarjetaServicio h4 {
+    font-size: 16px;
+    color: #b6bdc9;
+    margin: 5px 0 20px 0;
+    font-weight: normal;
+}
+
+.TarjetaServicio p {
+    font-size: 15px;
+    color: #d1d5db;
+    line-height: 1.6;
+}
+
+.ListaDetalles {
+    list-style: none;
+    padding: 0;
+    margin-top: auto;
+    font-size: 14px;
+    color: #b0b8c6;
+}
+
+.ListaDetalles li {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #2d3558;
+}
+
+.GridDespliegue {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.TarjetaDespliegue {
+    background: linear-gradient(145deg, #1f253d, #171b2d);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #00bfff;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.TarjetaDespliegue h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.TarjetaDespliegue p {
+    font-size: 14px;
+    color: #b0b8c6;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.AlineacionTarjeta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Efecto hover general que eleva las tarjetas */
+.Tarjeta:hover,
+.TarjetaServicio:hover,
+.TarjetaDespliegue:hover {
+    transform: translateY(-5px);
+    border-color: #00bfff;
+}
+
+/* Contenedor del simulador interactivo */
+.CajaInteractiva {
+    background: linear-gradient(135deg, rgba(18, 24, 38, 0.95), rgba(11, 15, 25, 0.95));
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 420px;
+    margin: 30px auto 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                0 0 15px rgba(59, 130, 246, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f3f4f6;
+}
+
+.GrupoInput {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.GrupoInput label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #93c5fd;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+}
+
+.InputControl {
+    background-color: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(120, 130, 150, 0.6);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.InputControl:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+    background-color: rgba(15, 23, 42, 1);
+}
+
+.InputControl.Invalido {
+    border-color: #ef4444;
+}
+
+.InputControl option {
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 10px;
+}
+
+.BotonAccion {
+    width: 100%;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    margin-top: 5px;
+}
+
+.BotonAccion:hover {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+    transform: translateY(-1px);
+}
+
+.BotonAccion:active {
+    transform: translateY(1px);
+}
+
+#resultadoDOM {
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+
+#resultadoDOM .TarjetaResultado {
+    background: rgba(30, 41, 59, 0.6);
+    border-left: 4px solid #3b82f6;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    color: #e2e8f0;
+    animation: aparecer 0.4s ease;
+}
+
+#resultadoDOM .TarjetaResultado.Error {
+    border-left-color: #ef4444;
+}
+
+.TarjetaResultado .ResTitulo {
+    font-weight: 600;
+    color: #93c5fd;
+    margin-bottom: 4px;
+}
+
+.TarjetaResultado .ResLinea {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.TarjetaResultado .ResLinea strong {
+    color: #ffffff;
+}
+
+.TarjetaResultado hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 8px 0;
+}
+
+.TarjetaResultado .ResTotal {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #60a5fa;
+}
+
+.TarjetaResultado .ResError {
+    color: #f87171;
+    font-weight: 500;
+}
+
+/* Animación de entrada para los resultados del simulador */
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botón flotante para regresar al inicio de la página */
+.BotonSubir {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00bfff, #9333ea);
+    color: #ffffff;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 900;
+}
+
+.BotonSubir.Visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Clases para animación de aparición progresiva al hacer scroll */
+.js-listo .Reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js-listo .Reveal.Visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.CloudFooter {
+    margin-top: 60px;
+    text-align: center;
+    padding: 20px;
+    background-color: #131622;
+    border-top: 1px solid #23283d;
+    color: #a3aab8;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.CloudFooter p {
+    margin: 0;
+}
+
+/* Ajustes responsivos para tablets y pantallas medianas */
+@media (max-width: 1100px) {
+    .CloudNavbar {
+        flex-wrap: wrap;
+        padding: 14px 24px;
+    }
+
+    .BotonMenu {
+        display: flex;
+    }
+
+    .BarraNavegacion {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        margin-left: 0;
+        padding: 10px 0 6px 0;
+    }
+
+    .BarraNavegacion.Abierto {
+        display: flex;
+    }
+
+    .NavH3 {
+        text-align: center;
+        padding: 12px 16px;
+    }
+
+    .AlineacionTarjeta {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ajustes responsivos para dispositivos móviles */
+@media (max-width: 700px) {
+    .CloudNavbar {
+        padding: 12px 16px;
+    }
+
+    .H2Cloud {
+        font-size: 22px;
+    }
+
+    .SeccionContenedor {
+        padding: 50px 16px;
+    }
+
+    .SeccionOscura {
+        border-radius: 0;
+    }
+
+    .CloudContent {
+        padding: 50px 16px 50px 16px;
+    }
+
+    .DescripcionSeccion {
+        font-size: 16px;
+    }
+
+    .AlineacionTarjeta {
+        grid-template-columns: 1fr;
+    }
+
+    .CajaInteractiva {
+        padding: 22px 18px;
+    }
+
+    .TituloSub {
+        margin-top: 50px;
+    }
+}
+
+/* Desactiva animaciones si el sistema operativo del usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .js-listo .Reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Patrón de cuadrícula cibernética para el fondo */
+.bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Patrón alternativo de puntos para el fondo */
+.bg-dots-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Efecto visual de cristal esmerilado (Glassmorphism) */
+.card-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
