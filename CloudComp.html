@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprende qué es la computación en la nube: modelos de servicio, despliegue, seguridad, aplicaciones y proveedores.">
+    <title>Computación en la Nube (Cloud Computing)</title>
+    <link rel="stylesheet" href="CloudComp.css">
+    <script src="CloudComp.js" defer></script>
+</head>
+<body class="CloudBody">
+    <!-- Coloca esto justo al inicio del contenedor principal de la sección (con position: relative) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 -right-40 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <a href="#contenido" class="SaltarContenido">Saltar al contenido</a>
+
+    <!-- Navbar -->
+    <nav class="CloudNavbar" aria-label="Navegación principal">
+        <a href="#inicio" class="MarcaNavbar" aria-label="Ir al inicio">
+            <picture class="CloudPicture">
+                <source srcset="Imagenes/Cloud_logo.jpg" type="image/jpeg">
+                <img id="CloudLogo" src="Imagenes/Cloud_logo.jpg" alt="Logo de Cloud Computing" width="50" height="50">
+            </picture>
+            <span class="H2Cloud">Cloud<span class="texto-celeste">Computing</span></span>
+        </a>
+
+        <button id="btnMenu" class="BotonMenu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuPrincipal">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="BarraNavegacion" id="menuPrincipal">
+            <a href="#que-es" class="NavH3">¿Qué es?</a>
+            <a href="#servicios" class="NavH3">Servicios</a>
+            <a href="#despliegue" class="NavH3">Despliegue</a>
+            <a href="#seguridad" class="NavH3">Seguridad</a>
+            <a href="#aplicaciones" class="NavH3">Aplicaciones</a>
+            <a href="#proveedores" class="NavH3">Proveedores</a>
+            <a href="#calculadora-dom" class="NavH3">Simulador</a>
+        </div>
+    </nav>
+
+    <main id="contenido">
+
+    <!-- Header / Hero Section -->
+    <header class="CloudContent" id="inicio">
+        <h1 class="H1CloudComputing">Aprendiendo sobre <span class="texto-multicolor">La Computación en la Nube</span></h1>
+        <p class="Parrafo_Inicio">Descubre cómo la infraestructura bajo demanda, la virtualización y los servicios distribuidos transforman el desarrollo de software y las operaciones globales.</p>
+        <img class="ImagenHero" src="Imagenes/hero-nube.svg" alt="Una nube central conectada a tres servidores" width="520" height="300">
+        <a href="#que-es" class="BotonHero">Comenzar a aprender</a>
+    </header>
+
+    <!-- Sección 1: ¿Qué es Cloud Computing? -->
+    <section id="que-es" class="SeccionContenedor Reveal">
+        <h2 class="TituloSeccion">¿Qué es la Computación en la Nube?</h2>
+        <p class="DescripcionSeccion">
+            Es la entrega a petición de recursos de TI a través de Internet con un modelo de pago por uso. En lugar de comprar, poseer y mantener servidores o centros de datos físicos, puedes acceder a servicios tecnológicos según los necesites.
+        </p>
+
+        <div class="GridTarjetas">
+            <div class="Tarjeta">
+                <div class="IndicadorTarjeta"></div>
+                <h3>Escalabilidad Instantánea</h3>
+                <p>Aumenta o reduce recursos de cómputo y almacenamiento en cuestión de segundos según la demanda.</p>
+            </div>
+            <div class="Tarjeta">
+                <div class="IndicadorTarjeta"></div>
+                <h3>Reducción de Costes</h3>
+                <p>Elimina gastos de capital iniciales en infraestructura física e instalaciones informáticas.</p>
+            </div>
+            <div class="Tarjeta">
+                <div class="IndicadorTarjeta"></div>
+                <h3>Acceso Global</h3>
+                <p>Despliega aplicaciones en múltiples regiones del mundo con solo unos clics y baja latencia.</p>
+            </div>
+            <div class="Tarjeta">
+                <div class="IndicadorTarjeta"></div>
+                <h3>Seguridad y Respaldo</h3>
+                <p>Copia de seguridad automatizada, cifrado de datos de alto nivel y continuidad del negocio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Modelos de Servicio -->
+    <section id="servicios" class="SeccionContenedor SeccionOscura Reveal">
+        <h2 class="TituloSeccion">Modelos de Servicio en la Nube</h2>
+        <p class="DescripcionSeccion">La nube ofrece tres modelos principales de servicio según el nivel de control que necesites:</p>
+
+        <figure class="Figura">
+            <img src="Imagenes/servicios-capas.svg" alt="Capas que administra el usuario y el proveedor en IaaS, PaaS y SaaS" width="560" height="330" loading="lazy">
+            <figcaption>En IaaS administras más capas; en SaaS, el proveedor se encarga de todas.</figcaption>
+        </figure>
+
+        <div class="GridServicios">
+            <!-- IaaS -->
+            <div class="TarjetaServicio">
+                <span class="Badge">Bajo Nivel</span>
+                <h3>IaaS</h3>
+                <h4>Infraestructura como Servicio</h4>
+                <p>Proporciona los bloques fundamentales de TI. Otorga acceso a recursos de red, computadoras (virtuales o dedicadas) y espacio de almacenamiento.</p>
+                <ul class="ListaDetalles">
+                    <li><strong>Control:</strong> Alto sobre la infraestructura.</li>
+                    <li><strong>Ejemplos:</strong> AWS EC2, Google Compute Engine, Azure VMs.</li>
+                </ul>
+            </div>
+
+            <!-- PaaS -->
+            <div class="TarjetaServicio Destacada">
+                <span class="Badge">Nivel Intermedio</span>
+                <h3>PaaS</h3>
+                <h4>Plataforma como Servicio</h4>
+                <p>Elimina la necesidad de gestionar la infraestructura subyacente (servidores, S.O.) para centrarse únicamente en la implementación y gestión de aplicaciones.</p>
+                <ul class="ListaDetalles">
+                    <li><strong>Control:</strong> Medio (enfocado en el código).</li>
+                    <li><strong>Ejemplos:</strong> Heroku, AWS Elastic Beanstalk, Firebase.</li>
+                </ul>
+            </div>
+
+            <!-- SaaS -->
+            <div class="TarjetaServicio">
+                <span class="Badge">Nivel Usuario</span>
+                <h3>SaaS</h3>
+                <h4>Software como Servicio</h4>
+                <p>Proporciona un producto completo ejecutado y gestionado por el proveedor del servicio. El usuario no gestiona el mantenimiento del software.</p>
+                <ul class="ListaDetalles">
+                    <li><strong>Control:</strong> Bajo (solo configuración).</li>
+                    <li><strong>Ejemplos:</strong> Google Workspace, Microsoft 365, Salesforce.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Modelos de Despliegue -->
+    <section id="despliegue" class="SeccionContenedor Reveal">
+        <h2 class="TituloSeccion">Modelos de Despliegue</h2>
+
+        <figure class="Figura">
+            <img src="Imagenes/despliegue-nubes.svg" alt="Ilustración de nube pública, privada, híbrida y multi-cloud" width="560" height="230" loading="lazy">
+            <figcaption>Cuatro formas de organizar dónde vive la infraestructura.</figcaption>
+        </figure>
+
+        <div class="GridDespliegue">
+            <div class="TarjetaDespliegue">
+                <h3>Nube Pública</h3>
+                <p>La infraestructura pertenece a un proveedor externo que la gestiona y la comparte entre múltiples clientes a través de Internet.</p>
+            </div>
+
+            <div class="TarjetaDespliegue">
+                <h3>Nube Privada</h3>
+                <p>Recursos utilizados exclusivamente por una sola empresa u organización. Puede estar físicamente en el data center local o ser alojada por un tercero.</p>
+            </div>
+
+            <div class="TarjetaDespliegue">
+                <h3>Nube Híbrida</h3>
+                <p>Combina infraestructura pública y privada, permitiendo compartir datos y aplicaciones entre ellas según las necesidades del negocio.</p>
+            </div>
+
+            <div class="TarjetaDespliegue">
+                <h3>Multi-Cloud</h3>
+                <p>Uso de servicios de múltiples proveedores de nube pública (por ejemplo, AWS + Azure) para prevenir el bloqueo de proveedores y optimizar costos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Seguridad en la Nube -->
+    <section id="seguridad" class="SeccionContenedor SeccionOscura Reveal">
+        <h2 class="TituloSeccion">Seguridad en la Nube</h2>
+
+        <figure class="Figura FiguraChica">
+            <img src="Imagenes/seguridad-escudo.svg" alt="Escudo con un candado que representa la seguridad en la nube" width="420" height="320" loading="lazy">
+        </figure>
+
+        <div class="GridDespliegue">
+            <div class="TarjetaDespliegue">
+                <h3>Control de accesos</h3>
+                <p>Permite definir quién puede ingresar a los datos, aplicaciones y recursos de la nube, reduciendo el riesgo de accesos no autorizados.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Cifrado de la información</h3>
+                <p>Protege los datos tanto cuando están almacenados como cuando viajan por Internet, evitando que personas no autorizadas puedan leerlos.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Detección de amenazas</h3>
+                <p>Monitorea actividades sospechosas como malware, phishing, accesos inusuales o intentos de ataque para responder rápidamente.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Copias de seguridad y disponibilidad</h3>
+                <p>Garantiza que la información pueda recuperarse ante errores, fallos técnicos o ataques, y que los usuarios autorizados puedan acceder a ella cuando la necesiten.</p>
+            </div>
+        </div>
+
+        <h2 class="TituloSeccion TituloSub">Beneficios</h2>
+
+        <div class="AlineacionTarjeta">
+            <div class="TarjetaDespliegue">
+                <h3>Ahorro de costos</h3>
+                <p>Permite pagar solo por los recursos que se utilizan, reduciendo la necesidad de comprar servidores y equipos costosos.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Acceso remoto</h3>
+                <p>Los archivos, aplicaciones y servicios pueden utilizarse desde una computadora, teléfono o tableta con conexión a Internet.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Escalabilidad</h3>
+                <p>Permite aumentar o disminuir el almacenamiento y la capacidad según las necesidades del usuario o la empresa.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Trabajo en equipo</h3>
+                <p>Varias personas pueden editar documentos, compartir archivos y comunicarse en tiempo real desde diferentes lugares.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Respaldo de datos</h3>
+                <p>La información puede guardarse automáticamente y recuperarse si un dispositivo se daña, se pierde o sufre un ataque.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Mantenimiento automático</h3>
+                <p>Los proveedores de la nube se encargan de mantener la infraestructura, lo que reduce la carga de trabajo para los usuarios y las empresas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 5: Aplicaciones de la Computación en la Nube -->
+    <section id="aplicaciones" class="SeccionContenedor Reveal">
+        <h2 class="TituloSeccion">Aplicaciones de la Computación en la Nube</h2>
+        <p class="DescripcionSeccion">
+            La computación en la nube se aplica en la vida cotidiana mediante el correo electrónico,
+            el almacenamiento de archivos, las redes sociales y los servicios de streaming.
+            Estas herramientas permiten acceder a información, comunicarse y disfrutar de contenido desde cualquier
+            dispositivo con conexión a Internet.
+        </p>
+
+        <figure class="Figura">
+            <img src="Imagenes/aplicaciones-dispositivos.svg" alt="Portátil, teléfono y tableta conectados a una nube" width="560" height="260" loading="lazy">
+            <figcaption>Un mismo servicio, accesible desde cualquier dispositivo.</figcaption>
+        </figure>
+
+        <div class="GridDespliegue">
+            <div class="TarjetaDespliegue">
+                <h3>Correo electrónico</h3>
+                <p>Servicios como Gmail, Outlook o Yahoo permiten enviar, recibir y consultar mensajes desde el teléfono, computadora o tableta.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Almacenamiento en la Nube</h3>
+                <p>Google Drive, OneDrive, Dropbox e iCloud permiten guardar fotos, documentos, videos y respaldos en línea.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Redes sociales</h3>
+                <p>Plataformas como Facebook, Instagram, TikTok y WhatsApp almacenan fotos, videos, mensajes y perfiles en la nube.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Servicios de música y video</h3>
+                <p>Netflix, YouTube, Spotify, Disney+ y Amazon Prime Video utilizan la nube para ofrecer contenido sin necesidad de descargarlo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 6: Principales Proveedores de Cloud Computing -->
+    <section id="proveedores" class="SeccionContenedor SeccionOscura Reveal">
+        <h2 class="TituloSeccion">Principales Proveedores de Cloud Computing</h2>
+        <p class="DescripcionSeccion">Los proveedores de servicios en la nube ofrecen soluciones de infraestructura, plataforma y software para empresas y usuarios individuales. Algunos de los más reconocidos son:</p>
+
+        <div class="GridDespliegue">
+            <div class="TarjetaDespliegue">
+                <h3>Amazon Web Services (AWS)</h3>
+                <p>Ofrece una amplia gama de servicios en la nube, incluyendo almacenamiento, bases de datos, análisis y aprendizaje automático.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Microsoft Azure</h3>
+                <p>Proporciona servicios en la nube para aplicaciones, bases de datos, inteligencia artificial y soluciones híbridas.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>Google Cloud Platform (GCP)</h3>
+                <p>Ofrece servicios de computación, almacenamiento, bases de datos y análisis de datos con enfoque en inteligencia artificial.</p>
+            </div>
+            <div class="TarjetaDespliegue">
+                <h3>IBM Cloud</h3>
+                <p>Proporciona soluciones en la nube para empresas, incluyendo infraestructura, plataforma y software como servicio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección interactiva con el DOM (simulador JS) -->
+    <section id="calculadora-dom" class="SeccionContenedor Reveal">
+        <h2 class="TituloSeccion">Simulador Interactivo con DOM</h2>
+        <p class="DescripcionSeccion">Calcula el costo estimado de tus horas de cómputo en la nube.</p>
+
+        <form class="CajaInteractiva" id="formSimulador" novalidate>
+            <div class="GrupoInput">
+                <label for="selectServicio">Selecciona el servicio:</label>
+                <select id="selectServicio" class="InputControl">
+                    <option value="IaaS">IaaS ($0.05/hr)</option>
+                    <option value="PaaS">PaaS ($0.12/hr)</option>
+                    <option value="SaaS">SaaS ($0.25/hr)</option>
+                </select>
+            </div>
+
+            <div class="GrupoInput">
+                <label for="inputHoras">Cantidad de horas:</label>
+                <input type="number" id="inputHoras" class="InputControl" placeholder="Ej. 100" min="1" inputmode="decimal">
+            </div>
+
+            <button type="submit" id="btnCalcular" class="BotonAccion">Calcular costo en la nube</button>
+
+            <!-- Contenedor donde el DOM inyecta dinámicamente el resultado -->
+            <div id="resultadoDOM" role="status" aria-live="polite"></div>
+        </form>
+    </section>
+
+    </main>
+
+    <button id="btnSubir" class="BotonSubir" type="button" aria-label="Volver arriba" title="Volver arriba">&#8593;</button>
+
+    <!-- Pie de página -->
+    <footer class="CloudFooter">
+        <p>Proverbios 16:3 "Encomienda al Señor tus obras, y tus pensamientos serán afirmados"</p>
+    </footer>
+</body>
+</html>
